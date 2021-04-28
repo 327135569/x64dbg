@@ -684,6 +684,7 @@ QAction* RegistersView::setupAction(const QString & text)
 RegistersView::RegistersView(QWidget* parent) : QScrollArea(parent), mVScrollOffset(0)
 {
     setWindowTitle("Registers");
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     mChangeViewButton = NULL;
     mFpuMode = 0;
     isActive = false;

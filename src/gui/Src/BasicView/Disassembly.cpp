@@ -13,6 +13,8 @@ Disassembly::Disassembly(QWidget* parent, bool isMain)
 {
     mMemPage = new MemoryPage(0, 0);
 
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
     mInstBuffer.clear();
     setDrawDebugOnly(true);
 

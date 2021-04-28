@@ -17,6 +17,7 @@ HexDump::HexDump(QWidget* parent)
     memset(&mSelection, 0, sizeof(SelectionData));
 
     setDrawDebugOnly(true);
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     mGuiState = HexDump::NoState;
 
