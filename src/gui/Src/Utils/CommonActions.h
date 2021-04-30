@@ -21,7 +21,6 @@ public:
         ActionDisasmData = 1 << 4, // Follow DWORD in Disassembly
         ActionDump = 1 << 5, // Follow in Dump
         ActionDumpMore = 1 << 6, // Follow in Dump (submenu)
-        ActionDumpN = 1 << 7, // Follow in Dump N (submenu)
         ActionDumpData = 1 << 8, // Follow DWORD in Dump
         ActionStackDump = 1 << 9, // Follow in Stack
         ActionMemoryMap = 1 << 10, // Follow in Memory Map

@@ -13,6 +13,7 @@ CPUStack::CPUStack(CPUMultiDump* multiDump, QWidget* parent) : HexDump(parent)
 {
     setWindowTitle("Stack");
     setShowHeader(false);
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     int charwidth = getCharWidth();
     ColumnDescriptor wColDesc;
     DataDescriptor dDesc;
@@ -282,7 +283,7 @@ void CPUStack::setupContextMenu()
     //Follow PTR in Dump
     auto followDumpName = ArchValue(tr("Follow DWORD in &Dump"), tr("Follow QWORD in &Dump"));
 
-    mCommonActions->build(mMenuBuilder, CommonActions::ActionDumpN | CommonActions::ActionWatch);
+    mCommonActions->build(mMenuBuilder, CommonActions::ActionWatch);
 
     mPluginMenu = new QMenu(this);
     Bridge::getBridge()->emitMenuAddToList(this, mPluginMenu, GUI_STACK_MENU);

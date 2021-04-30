@@ -45,25 +45,6 @@ void CommonActions::build(MenuBuilder* builder, int actions)
     {
         builder->addAction(makeCommandAction(DIcon("dump.png"), ArchValue(tr("&Follow DWORD in Current Dump"), tr("&Follow QWORD in Current Dump")), "dump [$]", "ActionFollowDwordQwordDump"), wIsValidReadPtrCallback);
     }
-    if(actions & ActionDumpN)
-    {
-        //Follow in Dump N menu
-        MenuBuilder* followDumpNMenu = new MenuBuilder(this, [this](QMenu*)
-        {
-            duint ptr;
-            return DbgMemRead(mGetSelection(), (unsigned char*)&ptr, sizeof(ptr)) && DbgMemIsValidReadPtr(ptr);
-        });
-        const int maxDumps = 5; // TODO: get this value from CPUMultiDump
-        for(int i = 0; i < maxDumps; i++)
-            // TODO: Get dump tab names
-            followDumpNMenu->addAction(makeAction(tr("Dump %1").arg(i + 1), [i, this]
-        {
-            duint selectedData = mGetSelection();
-            if(DbgMemIsValidReadPtr(selectedData))
-                DbgCmdExec(QString("dump [%1], %2").arg(ToPtrString(selectedData)).arg(i + 1));
-        }));
-        builder->addMenu(makeMenu(DIcon("dump.png"), ArchValue(tr("Follow DWORD in Dump"), tr("Follow QWORD in Dump"))), followDumpNMenu);
-    }
     if(actions & ActionStackDump)
     {
         builder->addAction(makeCommandAction(DIcon("stack.png"), tr("Follow in Stack"), "sdump $", "ActionFollowStack"), [this](QMenu*)
