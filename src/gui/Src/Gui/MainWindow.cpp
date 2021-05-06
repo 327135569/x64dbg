@@ -405,10 +405,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::setupCommandBar()
 {
-    mCmdLineEdit = new CommandLineEdit(ui->cmdBar);
-    ui->cmdBar->addWidget(new QLabel(tr("Command: ")));
-    ui->cmdBar->addWidget(mCmdLineEdit);
-    ui->cmdBar->addWidget(mCmdLineEdit->selectorWidget());
+
 }
 
 void MainWindow::setupStatusBar()
@@ -422,10 +419,12 @@ void MainWindow::setupStatusBar()
     mLastLogLabel = new LogStatusLabel(ui->statusBar);
     ui->statusBar->addPermanentWidget(mLastLogLabel, 1);
 
-    // Time wasted counter
-    QLabel* timeWastedLabel = new QLabel(this);
-    ui->statusBar->addPermanentWidget(timeWastedLabel);
-    mTimeWastedCounter = new TimeWastedCounter(this, timeWastedLabel);
+    // Cmd bar
+    QToolBar* cmdBar = new QToolBar(this);
+    mCmdLineEdit = new CommandLineEdit(cmdBar);
+    cmdBar->addWidget(mCmdLineEdit);
+    cmdBar->addWidget(mCmdLineEdit->selectorWidget());
+    ui->statusBar->addPermanentWidget(cmdBar, 1);
 }
 
 void MainWindow::setupLanguagesMenu()

@@ -291,23 +291,6 @@
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QToolBar" name="cmdBar">
-   <property name="windowTitle">
-    <string>CommandBar</string>
-   </property>
-   <property name="movable">
-    <bool>false</bool>
-   </property>
-   <property name="allowedAreas">
-    <set>Qt::BottomToolBarArea</set>
-   </property>
-   <attribute name="toolBarArea">
-    <enum>BottomToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-  </widget>
   <action name="actionOpen">
    <property name="icon">
     <iconset resource="../../resource.qrc">
