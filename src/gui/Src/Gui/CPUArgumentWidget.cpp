@@ -239,6 +239,7 @@ void CPUArgumentWidget::setupTable()
 {
     connect(mTable, SIGNAL(contextMenuSignal(QPoint)), this, SLOT(contextMenuSlot(QPoint)));
     mTable->enableMultiSelection(false);
+    mTable->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     mTable->setShowHeader(false);
     mTable->addColumnAt(0, "", false);
     mTable->reloadData();

@@ -58,7 +58,7 @@ CPUWidget::CPUWidget(QWidget* parent) : QWidget(parent), ui(new Ui::CPUWidget)
 
     connect(mDisas, SIGNAL(selectionChanged(dsint)), mInfo, SLOT(disasmSelectionChanged(dsint)));
 
-    mDump = new CPUMultiDump(mDisas, 5, this); //dump widget
+    mDump = new CPUMultiDump(mDisas, 4, this); //dump widget
     ui->mBotLeftFrameLayout->addWidget(mDump);
 
     mGeneralRegs = new CPURegistersView(this);
@@ -69,6 +69,7 @@ CPUWidget::CPUWidget(QWidget* parent) : QWidget(parent), ui(new Ui::CPUWidget)
     upperScrollArea->setFrameShape(QFrame::NoFrame);
     upperScrollArea->setWidget(mGeneralRegs);
     upperScrollArea->setWidgetResizable(true);
+    upperScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     QPushButton* button_changeview = new QPushButton("", this);
     connect(button_changeview, SIGNAL(clicked()), mGeneralRegs, SLOT(onChangeFPUViewAction()));

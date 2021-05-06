@@ -8,7 +8,6 @@
 CPUSideBar::CPUSideBar(CPUDisassembly* Ptr, QWidget* parent) : QAbstractScrollArea(parent)
 {
     setWindowTitle("SideBar");
-    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     topVA = -1;
     selectedVA = -1;
     viewableRows = 0;
@@ -713,7 +712,7 @@ void CPUSideBar::drawBullets(QPainter* painter, int line, bool isbp, bool isbpdi
     if(isbpdisabled) //disabled breakpoint
         painter->setBrush(QBrush(mBulletDisabledBreakpointColor));
 
-    painter->drawEllipse(x, y + mBulletYOffset, mBulletRadius, mBulletRadius);
+    painter->drawEllipse(x, y + mBulletYOffset, mBulletRadius/2, mBulletRadius/2);
 
     painter->restore();
 }
