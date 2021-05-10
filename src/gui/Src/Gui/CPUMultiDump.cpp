@@ -10,7 +10,7 @@
 #include <QTabBar>
 
 CPUMultiDump::CPUMultiDump(CPUDisassembly* disas, int nbCpuDumpTabs, QWidget* parent)
-    : MHTabWidget(parent, true)
+    : MHTabWidget(parent, false)
 {
     setWindowTitle("CPUMultiDump");
     mMaxCPUDumpTabs = nbCpuDumpTabs;

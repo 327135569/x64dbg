@@ -20,7 +20,7 @@ MHTabWidget::MHTabWidget(QWidget* parent, bool allowDetach, bool allowDelete) : 
     connect(mTabBar, SIGNAL(currentChanged(int)), this, SLOT(currentChanged(int)));
 
     setTabBar(mTabBar);
-    setMovable(true);
+    setMovable(false);
 
     mWindows.clear();
 }

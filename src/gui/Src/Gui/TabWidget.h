@@ -21,7 +21,7 @@ class MHTabWidget: public QTabWidget, public MultiItemsDataProvider
     Q_OBJECT
 
 public:
-    MHTabWidget(QWidget* parent = nullptr, bool allowDetach = true, bool allowDelete = false);
+    MHTabWidget(QWidget* parent = nullptr, bool allowDetach = false, bool allowDelete = false);
     virtual ~MHTabWidget();
 
     QWidget* widget(int index) const;

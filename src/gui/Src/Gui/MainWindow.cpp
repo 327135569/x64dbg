@@ -225,7 +225,7 @@ MainWindow::MainWindow(QWidget* parent)
     connect(mTraceWidget->getTraceBrowser(), SIGNAL(displayReferencesWidget()), this, SLOT(displayReferencesWidget()));
     connect(mTraceWidget->getTraceBrowser(), SIGNAL(displayLogWidget()), this, SLOT(displayLogWidget()));
 
-    mTabWidget = new MHTabWidget(this, true, true);
+    mTabWidget = new MHTabWidget(this, false, false);
 
     // Add all widgets to the list
     mWidgetList.push_back(WidgetInfo(mCpuWidget, "CPUTab"));
@@ -318,10 +318,6 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->actionCallStack, SIGNAL(triggered()), this, SLOT(displayCallstack()));
     connect(ui->actionSEHChain, SIGNAL(triggered()), this, SLOT(displaySEHChain()));
     connect(ui->actionTrace, SIGNAL(triggered()), this, SLOT(displayRunTrace()));
-    connect(ui->actionDonate, SIGNAL(triggered()), this, SLOT(donate()));
-    connect(ui->actionReportBug, SIGNAL(triggered()), this, SLOT(reportBug()));
-    connect(ui->actionBlog, SIGNAL(triggered()), this, SLOT(blog()));
-    connect(ui->actionCrashDump, SIGNAL(triggered()), this, SLOT(crashDump()));
     connect(ui->actionAttach, SIGNAL(triggered()), this, SLOT(displayAttach()));
     makeCommandAction(ui->actionDetach, "detach");
     connect(ui->actionChangeCommandLine, SIGNAL(triggered()), this, SLOT(changeCommandLine()));
@@ -902,12 +898,8 @@ void MainWindow::refreshShortcuts()
     setGlobalShortcut(ui->actionReloadStylesheet, ConfigShortcut("OptionsReloadStylesheet"));
 
     setGlobalShortcut(ui->actionAbout, ConfigShortcut("HelpAbout"));
-    setGlobalShortcut(ui->actionBlog, ConfigShortcut("HelpBlog"));
-    setGlobalShortcut(ui->actionDonate, ConfigShortcut("HelpDonate"));
     setGlobalShortcut(ui->actionCalculator, ConfigShortcut("HelpCalculator"));
-    setGlobalShortcut(ui->actionReportBug, ConfigShortcut("HelpReportBug"));
     setGlobalShortcut(ui->actionManual, ConfigShortcut("HelpManual"));
-    setGlobalShortcut(ui->actionCrashDump, ConfigShortcut("HelpCrashDump"));
 
     setGlobalShortcut(ui->actionStrings, ConfigShortcut("ActionFindStrings"));
     setGlobalShortcut(ui->actionCalls, ConfigShortcut("ActionFindIntermodularCalls"));

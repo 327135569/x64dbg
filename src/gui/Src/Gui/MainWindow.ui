@@ -150,17 +150,12 @@
      <string>&amp;Help</string>
     </property>
     <addaction name="actionCalculator"/>
-    <addaction name="actionCheckUpdates"/>
-    <addaction name="actionBlog"/>
-    <addaction name="actionDonate"/>
-    <addaction name="actionReportBug"/>
     <addaction name="actionPlugins"/>
     <addaction name="separator"/>
     <addaction name="actionManual"/>
     <addaction name="actionFaq"/>
     <addaction name="actionAbout"/>
     <addaction name="separator"/>
-    <addaction name="actionCrashDump"/>
    </widget>
    <widget class="QMenu" name="menuPlugins">
     <property name="title">
@@ -284,7 +279,6 @@
    <addaction name="actionCalls"/>
    <addaction name="separator"/>
    <addaction name="actionCalculator"/>
-   <addaction name="actionCheckUpdates"/>
   </widget>
   <widget class="QStatusBar" name="statusBar">
    <property name="sizeGripEnabled">
@@ -627,15 +621,6 @@
     <string>Functions</string>
    </property>
   </action>
-  <action name="actionCheckUpdates">
-   <property name="icon">
-    <iconset resource="../../resource.qrc">
-     <normaloff>:/icons/images/update.png</normaloff>:/icons/images/update.png</iconset>
-   </property>
-   <property name="text">
-    <string>Check for &amp;Updates</string>
-   </property>
-  </action>
   <action name="actionCallStack">
    <property name="icon">
     <iconset resource="../../resource.qrc">
@@ -655,18 +640,6 @@
    </property>
    <property name="text">
     <string>Shortcuts</string>
-   </property>
-  </action>
-  <action name="actionDonate">
-   <property name="icon">
-    <iconset resource="../../resource.qrc">
-     <normaloff>:/icons/images/donate.png</normaloff>:/icons/images/donate.png</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Donate</string>
-   </property>
-   <property name="toolTip">
-    <string>Donate</string>
    </property>
   </action>
   <action name="actionCalculator">
@@ -736,18 +709,6 @@
    </property>
    <property name="toolTip">
     <string>Topmost Window</string>
-   </property>
-  </action>
-  <action name="actionReportBug">
-   <property name="icon">
-    <iconset resource="../../resource.qrc">
-     <normaloff>:/icons/images/bug-report.png</normaloff>:/icons/images/bug-report.png</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Report Bug</string>
-   </property>
-   <property name="toolTip">
-    <string>Report Bug</string>
    </property>
   </action>
   <action name="actionSource">
@@ -957,15 +918,6 @@
     <string>Undo last instruction</string>
    </property>
   </action>
-  <action name="actionCrashDump">
-   <property name="icon">
-    <iconset resource="../../resource.qrc">
-     <normaloff>:/icons/images/crash_dump.png</normaloff>:/icons/images/crash_dump.png</iconset>
-   </property>
-   <property name="text">
-    <string>Generate crash dump</string>
-   </property>
-  </action>
   <action name="actionManageFavourite">
    <property name="icon">
     <iconset resource="../../resource.qrc">
@@ -1027,15 +979,6 @@
    </property>
    <property name="text">
     <string>Run (swallow exception)</string>
-   </property>
-  </action>
-  <action name="actionBlog">
-   <property name="icon">
-    <iconset resource="../../resource.qrc">
-     <normaloff>:/icons/images/hex.png</normaloff>:/icons/images/hex.png</iconset>
-   </property>
-   <property name="text">
-    <string>Blog</string>
    </property>
   </action>
   <action name="actionAnimateInto">
