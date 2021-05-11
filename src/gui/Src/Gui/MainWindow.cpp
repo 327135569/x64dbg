@@ -243,11 +243,7 @@ MainWindow::MainWindow(QWidget* parent)
     mWidgetList.push_back(WidgetInfo(mHandlesView, "HandlesTab"));
     mWidgetList.push_back(WidgetInfo(mTraceWidget, "TraceTab"));
 
-    // If LoadSaveTabOrder disabled, load tabs in default order
-    if(!ConfigBool("Gui", "LoadSaveTabOrder"))
-        loadTabDefaultOrder();
-    else
-        loadTabSavedOrder();
+    loadTabDefaultOrder();
 
     setCentralWidget(mTabWidget);
 
@@ -416,11 +412,9 @@ void MainWindow::setupStatusBar()
     ui->statusBar->addPermanentWidget(mLastLogLabel, 1);
 
     // Cmd bar
-    QToolBar* cmdBar = new QToolBar(this);
-    mCmdLineEdit = new CommandLineEdit(cmdBar);
-    cmdBar->addWidget(mCmdLineEdit);
-    cmdBar->addWidget(mCmdLineEdit->selectorWidget());
-    ui->statusBar->addPermanentWidget(cmdBar, 1);
+    mCmdLineEdit = new CommandLineEdit(ui->statusBar);
+    ui->statusBar->addPermanentWidget(mCmdLineEdit, 1);
+    ui->statusBar->addPermanentWidget(mCmdLineEdit->selectorWidget(), 0);
 }
 
 void MainWindow::setupLanguagesMenu()
@@ -766,36 +760,6 @@ void MainWindow::loadWindowSettings()
 
     if(BridgeSettingGet("Main Window Settings", "State", setting))
         restoreState(QByteArray::fromBase64(QByteArray(setting)));
-
-    // Restore detached windows size and position
-    // If a tab was detached last session, manually detach it now to populate MHTabWidget::windows
-    for(int i = 0; i < mWidgetList.size(); i++)
-    {
-        duint isDetached = 0;
-        BridgeSettingGetUint("Detached Windows", mWidgetList[i].nativeName.toUtf8().constData(), &isDetached);
-        if(isDetached)
-            mTabWidget->DetachTab(mTabWidget->indexOf(mWidgetList[i].widget), QPoint());
-    }
-
-    // Restore geometry for every tab we just detached
-    QSet<QWidget*> detachedTabWindows = mTabWidget->windows().toSet();
-    for(int i = 0; i < mWidgetList.size(); i++)
-    {
-        if(detachedTabWindows.contains(mWidgetList[i].widget))
-        {
-            if(BridgeSettingGet("Tab Window Settings", mWidgetList[i].nativeName.toUtf8().constData(), setting))
-                mWidgetList[i].widget->parentWidget()->restoreGeometry(QByteArray::fromBase64(QByteArray(setting)));
-        }
-    }
-
-    // 'Restore' deleted tabs
-    for(int i = 0; i < mWidgetList.size(); i++)
-    {
-        duint isDeleted = 0;
-        BridgeSettingGetUint("Deleted Tabs", mWidgetList[i].nativeName.toUtf8().constData(), &isDeleted);
-        if(isDeleted)
-            mTabWidget->DeleteTab(mTabWidget->indexOf(mWidgetList[i].widget));
-    }
 
     // Load favourite toolbar
     duint isVisible = 0;

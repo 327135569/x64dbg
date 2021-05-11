@@ -18,7 +18,6 @@ DebugStatusLabel::DebugStatusLabel(QStatusBar* parent) : QLabel(parent)
             maxWidth = width;
     }
     this->setTextFormat(Qt::RichText); //rich text
-    this->setFixedHeight(fm.height() + 5);
     this->setAlignment(Qt::AlignCenter);
     this->setFixedWidth(maxWidth + 10);
     connect(Bridge::getBridge(), SIGNAL(dbgStateChanged(DBGSTATE)), this, SLOT(debugStateChangedSlot(DBGSTATE)));

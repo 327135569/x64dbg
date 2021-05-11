@@ -155,7 +155,6 @@
     <addaction name="actionManual"/>
     <addaction name="actionFaq"/>
     <addaction name="actionAbout"/>
-    <addaction name="separator"/>
    </widget>
    <widget class="QMenu" name="menuPlugins">
     <property name="title">
