@@ -18,7 +18,7 @@ UpdateChecker::UpdateChecker(QWidget* parent)
 
 void UpdateChecker::checkForUpdates()
 {
-    get(QNetworkRequest(QUrl("https://api.github.com/repos/x64dbg/x64dbg/releases/latest")));
+    // get(QNetworkRequest(QUrl("https://api.github.com/repos/x64dbg/x64dbg/releases/latest")));
 }
 
 void UpdateChecker::finishedSlot(QNetworkReply* reply)
