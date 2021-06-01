@@ -238,8 +238,8 @@
    </property>
    <property name="iconSize">
     <size>
-     <width>16</width>
-     <height>16</height>
+     <width>32</width>
+     <height>32</height>
     </size>
    </property>
    <attribute name="toolBarArea">
@@ -277,6 +277,20 @@
    <addaction name="actionCalls"/>
    <addaction name="separator"/>
    <addaction name="actionCalculator"/>
+   <addaction name="separator"/>
+   <addaction name="actionCpu"/>
+   <addaction name="actionLog"/>
+   <addaction name="actionNotes"/>
+   <addaction name="actionBreakpoints"/>
+   <addaction name="actionMemoryMap"/>
+   <addaction name="actionSEHChain"/>
+   <addaction name="actionScript"/>
+   <addaction name="actionSymbolInfo"/>
+   <addaction name="actionSource"/>
+   <addaction name="actionReferences"/>
+   <addaction name="actionThreads"/>
+   <addaction name="actionHandles"/>
+   <addaction name="actionTrace"/>
   </widget>
   <widget class="QStatusBar" name="statusBar">
    <property name="sizeGripEnabled">
@@ -617,18 +631,6 @@
    </property>
    <property name="text">
     <string>Functions</string>
-   </property>
-  </action>
-  <action name="actionCallStack">
-   <property name="icon">
-    <iconset resource="../../resource.qrc">
-     <normaloff>:/icons/images/callstack.png</normaloff>:/icons/images/callstack.png</iconset>
-   </property>
-   <property name="text">
-    <string>Call Stack</string>
-   </property>
-   <property name="toolTip">
-    <string>Call Stack</string>
    </property>
   </action>
   <action name="actionShortcuts">

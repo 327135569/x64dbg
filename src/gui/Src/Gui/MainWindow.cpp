@@ -380,6 +380,10 @@ MainWindow::MainWindow(QWidget* parent)
 
     mCpuWidget->setDisasmFocus();
 
+    for(int i = 0 ; i <  mTabWidget->count(); i++) {
+        mTabWidget->setTabVisible(i, false);
+    }
+
     QTimer::singleShot(0, this, SLOT(loadWindowSettings()));
 
     updateDarkTitleBar();
