@@ -76,7 +76,6 @@
     <addaction name="actionNotes"/>
     <addaction name="actionBreakpoints"/>
     <addaction name="actionMemoryMap"/>
-    <addaction name="actionCallStack"/>
     <addaction name="actionSEHChain"/>
     <addaction name="actionScript"/>
     <addaction name="actionSymbolInfo"/>

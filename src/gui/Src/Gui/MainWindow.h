@@ -127,7 +127,6 @@ public slots:
     void displayBookmarks();
     void displayFunctions();
     void crashDump();
-    void displayCallstack();
     void displaySEHChain();
     void setGlobalShortcut(QAction* action, const QKeySequence & key);
     void refreshShortcuts();
@@ -167,7 +166,6 @@ private:
     MHTabWidget* mTabWidget;
     CPUWidget* mCpuWidget;
     MemoryMapView* mMemMapView;
-    CallStackView* mCallStackView;
     SEHChainView* mSEHChainView;
     LogView* mLogView;
     SymbolView* mSymbolView;

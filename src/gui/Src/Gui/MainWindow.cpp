@@ -171,11 +171,6 @@ MainWindow::MainWindow(QWidget* parent)
     mMemMapView->setWindowIcon(DIcon("memory-map.png"));
     mMemMapView->hide();
 
-    // Callstack view
-    mCallStackView = new CallStackView();
-    mCallStackView->setWindowTitle(tr("Call Stack"));
-    mCallStackView->setWindowIcon(DIcon("callstack.png"));
-
     // SEH Chain view
     mSEHChainView = new SEHChainView();
     mSEHChainView->setWindowTitle(tr("SEH"));
@@ -233,7 +228,7 @@ MainWindow::MainWindow(QWidget* parent)
     mWidgetList.push_back(WidgetInfo(mNotesManager, "NotesTab"));
     mWidgetList.push_back(WidgetInfo(mBreakpointsView, "BreakpointsTab"));
     mWidgetList.push_back(WidgetInfo(mMemMapView, "MemoryMapTab"));
-    mWidgetList.push_back(WidgetInfo(mCallStackView, "CallStackTab"));
+    // mWidgetList.push_back(WidgetInfo(mCallStackView, "CallStackTab"));
     mWidgetList.push_back(WidgetInfo(mSEHChainView, "SEHTab"));
     mWidgetList.push_back(WidgetInfo(mScriptView, "ScriptTab"));
     mWidgetList.push_back(WidgetInfo(mSymbolView, "SymbolsTab"));
@@ -311,7 +306,7 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->actionLabels, SIGNAL(triggered()), this, SLOT(displayLabels()));
     connect(ui->actionBookmarks, SIGNAL(triggered()), this, SLOT(displayBookmarks()));
     connect(ui->actionFunctions, SIGNAL(triggered()), this, SLOT(displayFunctions()));
-    connect(ui->actionCallStack, SIGNAL(triggered()), this, SLOT(displayCallstack()));
+    // connect(ui->actionCallStack, SIGNAL(triggered()), this, SLOT(displayCallstack()));
     connect(ui->actionSEHChain, SIGNAL(triggered()), this, SLOT(displaySEHChain()));
     connect(ui->actionTrace, SIGNAL(triggered()), this, SLOT(displayRunTrace()));
     connect(ui->actionAttach, SIGNAL(triggered()), this, SLOT(displayAttach()));
@@ -795,7 +790,7 @@ void MainWindow::refreshShortcuts()
     setGlobalShortcut(ui->actionLog, ConfigShortcut("ViewLog"));
     setGlobalShortcut(ui->actionBreakpoints, ConfigShortcut("ViewBreakpoints"));
     setGlobalShortcut(ui->actionMemoryMap, ConfigShortcut("ViewMemoryMap"));
-    setGlobalShortcut(ui->actionCallStack, ConfigShortcut("ViewCallStack"));
+    // setGlobalShortcut(ui->actionCallStack, ConfigShortcut("ViewCallStack"));
     setGlobalShortcut(ui->actionSEHChain, ConfigShortcut("ViewSEHChain"));
     setGlobalShortcut(ui->actionScript, ConfigShortcut("ViewScript"));
     setGlobalShortcut(ui->actionSymbolInfo, ConfigShortcut("ViewSymbolInfo"));
@@ -1544,8 +1539,6 @@ void MainWindow::runSelection()
         duint addr = 0;
         if(mTabWidget->currentWidget() == mCpuWidget || (mCpuWidget->window() != this && mCpuWidget->isActiveWindow()))
             addr = mCpuWidget->getSelectionVa();
-        else if(mTabWidget->currentWidget() == mCallStackView || (mCallStackView->window() != this && mCallStackView->isActiveWindow()))
-            addr = mCallStackView->getSelectionVa();
         if(addr)
             DbgCmdExec("run " + ToPtrString(addr));
     }
@@ -1618,11 +1611,6 @@ void MainWindow::displayFunctions()
         return;
     DbgCmdExec("functionlist");
     displayReferencesWidget();
-}
-
-void MainWindow::displayCallstack()
-{
-    showQWidgetTab(mCallStackView);
 }
 
 void MainWindow::displaySEHChain()
