@@ -8,8 +8,8 @@ CallStackView::CallStackView(StdTable* parent) : StdTable(parent)
 
     addColumnAt(8 * charwidth, tr("Thread ID"), false);
     addColumnAt(8 + charwidth * sizeof(dsint) * 2, tr("Address"), false); //address in the stack
-    addColumnAt(8 + charwidth * sizeof(dsint) * 2, tr("To"), false); //return to
-    addColumnAt(8 + charwidth * sizeof(dsint) * 2, tr("From"), false); //return from
+    addColumnAt(8 + charwidth * sizeof(dsint) * 2, tr("Caller"), false); //return to
+    addColumnAt(8 + charwidth * sizeof(dsint) * 2, tr("Callee"), false); //return from
     addColumnAt(8 + charwidth * sizeof(dsint) * 2, tr("Size"), false); //size
     addColumnAt(50 * charwidth, tr("Comment"), false);
     addColumnAt(8 * charwidth, tr("Party"), false); //party
