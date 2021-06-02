@@ -140,8 +140,6 @@ SOURCES += \
     Src/Gui/SelectFields.cpp \
     Src/Gui/ReferenceManager.cpp \
     Src/Bridge/BridgeResult.cpp \
-    Src/Gui/SourceViewerManager.cpp \
-    Src/Gui/SourceView.cpp \
     Src/Utils/ValidateExpressionThread.cpp \
     Src/Utils/MainWindowCloseThread.cpp \
     Src/Gui/TimeWastedCounter.cpp \
@@ -263,8 +261,6 @@ HEADERS += \
     Src/Gui/SelectFields.h \
     Src/Gui/ReferenceManager.h \
     Src/Bridge/BridgeResult.h \
-    Src/Gui/SourceViewerManager.h \
-    Src/Gui/SourceView.h \
     Src/Utils/StringUtil.h \
     Src/Utils/ValidateExpressionThread.h \
     Src/Utils/MainWindowCloseThread.h \

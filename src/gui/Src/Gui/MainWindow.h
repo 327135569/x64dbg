@@ -23,7 +23,6 @@ class PatchDialog;
 class CalculatorDialog;
 class DebugStatusLabel;
 class LogStatusLabel;
-class SourceViewerManager;
 class HandlesView;
 class MainWindowCloseThread;
 class TimeWastedCounter;
@@ -85,7 +84,6 @@ public slots:
     void displayCpuWidget();
     void displayCpuWidgetShowCpu();
     void displaySymbolWidget();
-    void displaySourceViewWidget();
     void displayReferencesWidget();
     void displayThreadsWidget();
     void displayVariables();
@@ -169,7 +167,6 @@ private:
     SEHChainView* mSEHChainView;
     LogView* mLogView;
     SymbolView* mSymbolView;
-    SourceViewerManager* mSourceViewManager;
     BreakpointsView* mBreakpointsView;
     ScriptView* mScriptView;
     ReferenceManager* mReferenceManager;

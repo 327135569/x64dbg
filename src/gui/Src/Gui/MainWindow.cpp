@@ -151,12 +151,6 @@ MainWindow::MainWindow(QWidget* parent)
     mSymbolView->setWindowIcon(DIcon("pdb.png"));
     mSymbolView->hide();
 
-    // Source view
-    mSourceViewManager = new SourceViewerManager();
-    mSourceViewManager->setWindowTitle(tr("Source"));
-    mSourceViewManager->setWindowIcon(DIcon("source.png"));
-    mSourceViewManager->hide();
-
     // Breakpoints
     mBreakpointsView = new BreakpointsView();
     mBreakpointsView->setWindowTitle(tr("Breakpoints"));
@@ -228,11 +222,9 @@ MainWindow::MainWindow(QWidget* parent)
     mWidgetList.push_back(WidgetInfo(mNotesManager, "NotesTab"));
     mWidgetList.push_back(WidgetInfo(mBreakpointsView, "BreakpointsTab"));
     mWidgetList.push_back(WidgetInfo(mMemMapView, "MemoryMapTab"));
-    // mWidgetList.push_back(WidgetInfo(mCallStackView, "CallStackTab"));
     mWidgetList.push_back(WidgetInfo(mSEHChainView, "SEHTab"));
     mWidgetList.push_back(WidgetInfo(mScriptView, "ScriptTab"));
     mWidgetList.push_back(WidgetInfo(mSymbolView, "SymbolsTab"));
-    mWidgetList.push_back(WidgetInfo(mSourceViewManager, "SourceTab"));
     mWidgetList.push_back(WidgetInfo(mReferenceManager, "ReferencesTab"));
     mWidgetList.push_back(WidgetInfo(mThreadView, "ThreadsTab"));
     mWidgetList.push_back(WidgetInfo(mHandlesView, "HandlesTab"));
@@ -1087,11 +1079,6 @@ void MainWindow::displayCpuWidget()
 void MainWindow::displaySymbolWidget()
 {
     showQWidgetTab(mSymbolView);
-}
-
-void MainWindow::displaySourceViewWidget()
-{
-    showQWidgetTab(mSourceViewManager);
 }
 
 void MainWindow::displayReferencesWidget()
