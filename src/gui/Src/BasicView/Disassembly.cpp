@@ -834,6 +834,14 @@ void Disassembly::mouseReleaseEvent(QMouseEvent* event)
         AbstractTableView::mouseReleaseEvent(event);
 }
 
+void Disassembly::wheelEvent(QWheelEvent* event)
+{
+    if(event->modifiers() == Qt::NoModifier)
+        AbstractTableView::wheelEvent(event);
+    else if(event->modifiers() == Qt::ControlModifier) // Zoom
+        Config()->zoomFont("Disassembly", event);
+}
+
 /************************************************************************************
                             Keyboard Management
 ************************************************************************************/
